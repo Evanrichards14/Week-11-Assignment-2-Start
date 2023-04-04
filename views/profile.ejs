@@ -7,13 +7,19 @@
     <title>Jest Smart Home Profile</title>
   </head>
   <body>
+    <%- include('layouts/menu') -%>
+
     <main>
+      <% if (user) { -%>
+        <h1><%=user.fname %>'s Profile</h1>
+        <%} else {%>
       <h1>Your Profile</h1>
-      <form>
+      <% } %>
+      <form id="profile_form" action ="/update-profile" method ="POST">
         <div>
           <label>Name</label
-          ><input id="first_name" type="text" placeholder="First Name" />
-          <input id="last_name" type="text" placeholder="Last Name" />
+          ><input name="fname" id="first_name" type="text" placeholder="First Name" />
+          <input name="lname" id="last_name" type="text" placeholder="Last Name" />
           <span id="name_error" class="error-span"></span>
         </div>
         <div>
