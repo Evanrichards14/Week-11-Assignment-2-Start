@@ -1,13 +1,14 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
+    background-color: rgb(175, 118, 118);
     margin: 0 auto;
-    width: 700px;
-    border: 3px solid rgb(0, 0, 0);
+    
+    border: 3px solid rgb(65, 65, 65);
     padding: 0 2em 1em;
 }
 h1 {
     color: rgb(0, 0, 0);
+    font-family: Libre Caslon Text;
 }
 div {
     margin-bottom: .5em;
@@ -63,6 +64,7 @@ button {
 h2 {
     color: rgb(0, 0, 0);
     text-align: center;
+    font-family: Libre Caslon Text;
 }
 
 p {
@@ -78,7 +80,7 @@ p {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ce6707;
+    background-color: #3f3d3b;
 }
   
   .menu-li {
@@ -122,7 +124,7 @@ p {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ce6707;}
+    background-color: #3f3d3b;}
     .footer-li a {
         display: block;
         color: white;
