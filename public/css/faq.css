@@ -7,7 +7,7 @@ body {
     font-size: 87.5%;
     width: 550px;
     margin: 0 auto;
-    border: 3px solid cadetblue;
+    border: 3px solid rgb(0, 0, 0);
     padding: 15px 25px;
 }
 h1 { 
@@ -27,7 +27,7 @@ a {
     text-decoration: none; 
 }
 a:focus, a:hover { 
-	color: cadetblue; 
+	color: rgb(0, 0, 0); 
 }
 div {
     display: none;
@@ -48,3 +48,39 @@ p {
 .hidden { display: none; }
 fieldset { padding: 1em; }
 legend { font-weight: bold; padding: 0.5em; }
+.menu-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ce6707;
+}
+  
+  .menu-li {
+    float: left;
+  }
+  
+  .menu-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .footer-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ce6707;}
+    .footer-li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+        
+  .footer-li {
+    float: left;
+  }

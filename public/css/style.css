@@ -1,0 +1,91 @@
+#smartHub {
+    text-align: center;
+  }
+#dashboard {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+  }
+  h3 {
+    text-align: center;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #e70000;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+ 
+  body {
+    background-color: rgb(255, 255, 255);
+  }
+  
+  h1 {
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    font-style: oblique;
+  }
+
+
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+
+
+
+
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .buttons button {
+    margin-right: 10px;
+  }
+  
+  #display {
+    margin-top: 20px;
+  }
+  
+  #display h2 {
+    margin-bottom: 10px;
+  }
+  
+  #display p {
+    font-size: 16px;
+  }
+
+  .centered-image {
+    display: block;
+    margin: 0 auto;
+    width: 10%;
+  }

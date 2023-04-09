@@ -4,12 +4,12 @@
     <link rel="stylesheet" href="css/project.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jest Smart Home</title>
+    <title>Evans Smart Home</title>
   </head>
   <body>
     <%- include('layouts/menu') -%>
     <main>
-      <h1>Jest Smart Home</h1>
+      <h2>Evans Smarthub Dashboard</h2>
       <div>
         <h3 id="date_display"></h3>
       </div>
@@ -55,7 +55,7 @@
           /><span id="location_error" class="error-span"></span>
         </div>
         <div>
-          <label>Temperature</label>
+          <label>Temperature (°C):</label>
           <input
             type="number"
             id="temperature"
@@ -65,7 +65,30 @@
             step="0.5"
             value="21"
           /><span id="temperature_error" class="error-span"></span>
-        </div>
+
+          <body>
+            <h2>Temporary Temp</h2>
+            <label for="temp-input">Temperature (°C):</label>
+            <input
+              type="number"
+              id="temperature"
+              name="temperature"
+              min="5"
+              max="30"
+              step="0.5"
+              value="21"
+            /><span id="temperature_error" class="error-span"></span>
+            <br>
+            <label for="hours-input">Duration:</label>
+            <input type="number" id="hours-input" name="hours-input" min="0" max="24" placeholder="HH" required>
+            <input type="number" id="minutes-input" name="minutes-input" min="0" max="59" placeholder="MM" required>
+            <button onclick="startTimer()">Start</button>
+            <div id="timer-display"></div>
+            <div id="temp-display"></div>
+            <script src="index.js"></script>
+          </body>
+          
+
         <div>
           <label></label>
           <input type="submit" value="Update" id="update_settings" />
@@ -91,6 +114,9 @@
         ><span>°C</span>
       </div>
     </main>
+    <footer>
+      <%- include('layouts/footer') -%>
+    </footer>
     <script src="js/dashboard.js"></script>
   </body>
 </html>

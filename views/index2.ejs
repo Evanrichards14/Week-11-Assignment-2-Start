@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/project.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <%- include('layouts/menu') -%>
+
+    <h1 id="smartHub"> Evans SmartHub</h1>
+   
+    <main>
+      <h1 id="dashboard"> Dashboard</h1>
+      <h2> Time is <span id="time"> </span></h2>
+<script src="script.js">   </script>
+
+
+
+
+<h3>
+<div>
+  <h2>Device Settings</h2>
+  <form id="device-settings">
+    <div>
+      <label for="device-name">Device Name:</label>
+      <input type="text" id="device-name" name="device-name" placeholder="Enter device name">
+    </div>
+    <form>
+
+      <label for="postal-code">Postal Code:</label>
+      <input type="text" id="postal-code" name="postal-code"placeholder="Enter Postal Code"><br>
+      <div id="postal-code-error" class="error-message"></div><br>
+    </form>
+    <div>
+      <label for="notifications">Notifications:</label>
+      <select id="notifications" name="notifications">
+        <option value="on">On</option>
+        <option value="off">Off</option>
+      </select>
+    </div>
+    <div>
+      <label for="lighting-mode">Lighting Mode:</label>
+      <select id="lighting-mode" name="lighting-mode">
+        <option value="off">Off</option>
+        <option value="away">Away</option>
+        <option value="eco">Eco</option>
+        <option value="full">Full</option>
+      </select>
+      <div id="current-mode">Current Lighting Mode: Off</div>
+    </div>
+    <div>
+      <label for="temperature">Temperature:</label>
+      <input type="range" id="temperature" name="temperature" min="10" max="25" step="0.5">
+      <div id="current-temperature">Current Temperature: 10°C</div>
+    </div>
+    <button type="reset" id="reset">Reset</button>
+    <button type="submit">Submit</button>
+  </form>
+</h3>
+</div>
+</main>
+<footer>
+  <%- include('layouts/footer') -%>
+</footer>
+</body>
+</html>

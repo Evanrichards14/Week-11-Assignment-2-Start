@@ -19,19 +19,21 @@ const swapImage = ()=>{
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const links= document.querySelectorAll("a");
-
+    const links = document.querySelectorAll("a");
     let image;
-
-
-    for (let link of links){
-        image = new Image();
-
-        image.src = link.href;
-        image.alt = link.title;
-
-        imageCache.push(image);
+  
+    for (let link of links) {
+      image = new Image();
+      image.src = link.href;
+      image.alt = link.title;
+      imageCache.push(image);
     }
-
-    setInterval(swapImage, 2000);
-});
+  
+    $("#previous").addEventListener("click", () => {
+      swapImage(-1);
+    });
+  
+    $("#next").addEventListener("click", () => {
+      swapImage(1);
+    });
+  });

@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fishing Slide Show</title>
+    <title>Evans Slide Show</title>
     <link rel="stylesheet" href="css/project.css">
 </head>
-<body>
+<div>
     <%- include('layouts/menu') -%>
+</div>
+<body>
+ 
     <main>
-        <h1>Fishing Slide Show</h1>
+        <h1>Evans Slide Show</h1>
 
         <ul id="image_list">
-            <li><a href="images/ala.png" title="Catch and Release"></a></li>
-            <li><a href="images/mars.png" title="Marsh at Play"></a></li>
-            <li><a href="images/shroom.png" title="The Big One!"></a></li>
-            <li><a href="images/wurm.png" title="Roaming Worm"></a></li>
+            <li><a href="images/rebullf1.png" title="F1 Car"></a></li>
+            <li><a href="images/redbullcar.png" title="Lambo"></a></li>
+            <li><a href="images/redbullsxs.png" title="SXS"></a></li>
+            <li><a href="images/redbulltruck.png" title="Trophy Truck"></a></li>
         </ul>
-    
-        <p><img id="main_image" src="images/ala.png" alt="Catch and Release"></p>
-        <h2 id="caption">Catch and Release</h2>    
+        
+        <p><img id="main_image" src="images/redbullcar.png" alt="Racing Stuff"></p>
+        <h2 id="caption">Racing Suff</h2>    
 
         <script src="js/slide-show.js"></script>
     </main>  
+    <div>
+        <button id="previous">Previous</button>
+        <button id="next">Next</button>
+      </div>
 </body>
 </html>
