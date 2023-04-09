@@ -1,14 +1,13 @@
 "use strict";
 
 const $ = (selector) => document.querySelector(selector);
-
+// sets up the format for the postal code
 const postalRegEx =
   /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
 
 const onReset = (evt) => {
-  //TODO:: Reset the reset-able fields
   resetErrors();
-
+//sets up the base inputs when the fields are reset
   $("#notifications").checked = true;
 
   $("#eco").checked = true;
@@ -17,7 +16,7 @@ const onReset = (evt) => {
 
   evt.preventDefault();
 };
-
+//resets errors in any fields 
 const resetErrors = () => {
   $("#temperature_error").textContent = "";
   $("#location_error").textContent = "";
@@ -25,40 +24,33 @@ const resetErrors = () => {
 };
 
 const onSubmit = (evt) => {
-  //TODO::Reset any errors before submitting
   resetErrors();
-
-  //TODO:: Set notifications since it doesn't need to be validated
+// notifications get checked either on or off
   let notificationsOn = $("#notifications").checked;
 
   $("#setting_notifications").textContent = notificationsOn ? "On" : "Off";
 
-  //TODO:: Set lighting mode with a for loop since it doesn't need to be validated
-  //querySelectorAll returns an array of everything that matches the argument
+
   let lightingModeOptions = document.querySelectorAll("[name='lighting_mode']");
 
   for (let i = 0; i < lightingModeOptions.length; i++) {
     if (lightingModeOptions[i].checked) {
-      //Set setting_lighting_mode to the value of the selected radio button
       $("#setting_lighting_mode").textContent = lightingModeOptions[i].value;
     }
   }
 
-  //TODO:: Validate the postal code with the Regular Expression,
-  //TODO:: Display an error if not valid
+
   let location = $("#location").value;
 
   if (postalRegEx.test(location)) {
-    //if the postal code is valid this code will run
     $("#setting_location").textContent = location;
   } else {
-    //Add your logic here if the postal code is not valid
+    //if the postal code is not valid print that its incorrect
     $("#location_error").textContent =
       "The postal code did not match the format required.";
   }
 
-  //TODO:: Validate the temperature by checking the range and if it's a number
-  //TODO:: Display an error if not valid
+
   let temperature = $("#temperature").value;
   let temperatureError = $("#temperature_error");
 
@@ -80,10 +72,55 @@ const onSubmit = (evt) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  //TODO:: Add current date
+  //Adds current date
   $("#date_display").textContent = new Date().toDateString();
-  //TODO:: Add Reset Form listener
+  //resets 
   $("#reset_form").addEventListener("reset", onReset);
   //TODO:: Add Submit Form listener
   $("#update_settings").addEventListener("click", onSubmit);
 });
+// this code is to be used for the timer once the values have been inputted but I could not seem to make it work after bouncing between several examples and trying different things.
+let timerInterval;
+let originalTemp;
+
+function startTimer() {
+  const tempInput = document.getElementById("temp-input");
+  const hoursInput = document.getElementById("hours-input");
+  const minutesInput = document.getElementById("minutes-input");
+  const timerDisplay = document.getElementById("timer-display");
+  const tempDisplay = document.getElementById("temp-display");
+
+  // this gets the starting temperature
+  originalTemp = parseInt(tempDisplay.innerText);
+
+  // finds the number time inputted into page
+  const totalSeconds = (parseInt(hoursInput.value) * 60 * 60) + (parseInt(minutesInput.value) * 60);
+
+  // set the new temperature and start the timer
+  const newTemp = parseInt(tempInput.value);
+  setTemperature(newTemp);
+  timerDisplay.innerText = formatTime(totalSeconds);
+  timerInterval = setInterval(function() {
+    totalSeconds--;
+    // check if the timer has run out
+    if (totalSeconds === 0) {
+      clearInterval(timerInterval);
+      setTemperature(originalTemp);
+      timerDisplay.innerText = "Timer finished.";
+    } else {
+      timerDisplay.innerText = formatTime(totalSeconds);
+    }
+  }, 1000);
+}
+
+function setTemperature(temp) {
+  const tempDisplay = document.getElementById("temp-display");
+  tempDisplay.innerText = temp.toString() + "°C";
+}
+// does the math to calculate the seconds into hours minutes and seconds
+function formatTime(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}

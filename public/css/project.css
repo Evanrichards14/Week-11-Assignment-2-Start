@@ -11,6 +11,10 @@ h1 {
 }
 div {
     margin-bottom: .5em;
+    text-align: center;
+
+
+
 }
 label {
     display: inline-block;
@@ -29,7 +33,7 @@ span {
 }
 
 #main_image{
-    max-width: 200px;
+    max-width: 400px;
 }
 
 .error-span {

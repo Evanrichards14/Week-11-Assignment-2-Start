@@ -1,14 +1,14 @@
 "use strict";
 
 const $ = (selector) => document.querySelector(selector);
-
+//setting up the base for the email layout and the password layout
 const emailRegEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 const passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z]).{8,}$/;
 
 const onReset = (evt) => {
   resetErrors();
-  //TODO:: Reset the reset-able fields
+  //Resets the reset-able fields
   $("#first_name").value = "";
   $("#last_name").value = "";
   $("#email").value = "";
@@ -18,7 +18,7 @@ const onReset = (evt) => {
 
   evt.preventDefault();
 };
-
+//resets for errors
 const resetErrors = () => {
   $("#name_error").textContent = "";
   $("#password_error").textContent = "";
@@ -28,7 +28,7 @@ const resetErrors = () => {
 const onSubmit = (evt) => {
   resetErrors();
 
-  //TODO:: Use this boolean to keep track of any errors because you need to prevent the settings
+  //keeps track of any errors because you need to prevent the settings
   //       from updating if even one field is wrong
   let formErrors = false;
 
@@ -39,7 +39,7 @@ const onSubmit = (evt) => {
   let confirmPassword = $("#confirm_password").value;
   let dob = new Date($("#dob").value);
   let today = new Date();
-
+// if fields are incorrect give  response explaining that its wrong
   if (firstName == "" || lastName == "") {
     $("#name_error").textContent = "Name fields can't be empty.";
     formErrors = true;
@@ -64,7 +64,7 @@ const onSubmit = (evt) => {
     $("#dob_error").textContent = "Date of birth must be in the past.";
     formErrors = true;
   }
-
+//sets the inputs to the values registered with the names
   if (!formErrors) {
     $("#user_dob").textContent = dob.toDateString();
 

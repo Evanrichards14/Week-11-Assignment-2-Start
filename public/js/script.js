@@ -8,7 +8,7 @@ function refreshTime() {
   setInterval(refreshTime, 1000);
 
 
-
+//sets up all of the ids for the different variables
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('device-settings');
     const deviceNameInput = document.getElementById('device-name');
@@ -18,17 +18,17 @@ function refreshTime() {
     const currentMode = document.getElementById('current-mode');
     const currentTemperature = document.getElementById('current-temperature');
     
-    // Display current lighting mode when changed
+    // Displays the current lighting mode when changed
     lightingModeSelect.addEventListener('change', function() {
       currentMode.textContent = `Current Lighting Mode: ${lightingModeSelect.value}`;
     });
     
-    // Display current temperature when changed
+    // Displays the current temperature when changed
     temperatureInput.addEventListener('input', function() {
       currentTemperature.textContent = `Current Temperature: ${temperatureInput.value}°C`;
     });
     
-    // Reset form on button click
+    // Resets the form when button is pressed
     const resetButton = document.getElementById('reset');
     resetButton.addEventListener('click', function() {
       form.reset();
@@ -36,16 +36,15 @@ function refreshTime() {
       currentTemperature.textContent = `Current Temperature: 10°C`;
     });
     
-    // Handle form submission
+    //deals with the form submission
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-      // TODO: Add code to handle form submission
     });
   });
-
+//sets up variables for the postal code and its errors
   const postalCodeInput = document.getElementById('postal-code');
   const postalCodeError = document.getElementById('postal-code-error');
-  
+  //validates whether it has been inpuuted as a candian code, and if not spits out an error
   function validatePostalCode() {
     const postalCodeRegex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
     if (!postalCodeRegex.test(postalCodeInput.value)) {
@@ -56,7 +55,7 @@ function refreshTime() {
       return true;
     }
   }
-  
+  //code to use a functional button
   const checkButton = document.getElementById('check-btn');
   checkButton.addEventListener('click', function() {
     validatePostalCode();

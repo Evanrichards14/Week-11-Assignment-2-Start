@@ -1,7 +1,7 @@
 "use strict";
 
 const $ = (selector) => document.querySelector(selector);
-
+//sets up the timer for the faq page,
 let timerCounter = 10;
 let timer;
 
@@ -16,7 +16,7 @@ const goToTerms= ()=>{
     }
 
 }
-
+//function for the accept button 
 const acceptTerms = ()=>{
     clearInterval(timer);
     $("#terms").setAttribute("class", "hidden");
@@ -32,11 +32,11 @@ const toggleQuestion = (evt)=>{
 document.addEventListener("DOMContentLoaded", () => {
 
     $("#seconds").textContent = timerCounter;
-    //Step 1: Check if user accepted terms
+    //Check if user accepted terms
     const query = window.location.search;
     const urlParameters = new URLSearchParams(query);
     const accepted = urlParameters.get("accepted"); 
-    //console.log(urlParameters.get("first_name")+ " is a terrible teacher.")
+    
 
 
     $("#accept").addEventListener("click", acceptTerms)
