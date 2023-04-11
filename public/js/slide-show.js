@@ -19,7 +19,7 @@ const swapImage = ()=>{
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll("a");
+    const links = document.querySelectorAll("#image_list a");
     let image;
   
     for (let link of links) {
